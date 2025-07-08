@@ -15,7 +15,6 @@ body {
   padding: 1rem;
 }
 
-/* Form Container */
 .form-container {
   max-width: 450px;
   width: 100%;
@@ -33,10 +32,9 @@ body {
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
 }
 
-/* Headings */
 .form-title {
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: #1e293b;
   margin-bottom: 0.5rem;
@@ -45,20 +43,19 @@ body {
 
 .form-subtitle {
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 400;
   color: #64748b;
   margin-bottom: 2rem;
 }
 
-/* Form */
+
 .expense-form {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 }
 
-/* Input Group */
 .input-group {
   position: relative;
   display: flex;
@@ -66,7 +63,7 @@ body {
 }
 
 .input-group label {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   font-weight: 500;
   color: #1e293b;
   margin-bottom: 0.5rem;
@@ -77,11 +74,11 @@ body {
 
 .input-icon {
   color: #64748b;
-  font-size: 1.2rem;
+  font-size: .9rem;
 }
 
 .input-group input {
-  height: 48px;
+  height: 40px;
   padding: 0 1rem 0 2.5rem;
   font-size: 1rem;
   border: 2px solid #e2e8f0;
@@ -101,14 +98,14 @@ body {
   color: #94a3b8;
 }
 
-/* Submit Button */
+
 .submit-btn {
-  height: 50px;
+  height: 38px;
   background: linear-gradient(90deg, #3b82f6 0%, #60a5fa 100%);
   color: white;
   border: none;
-  border-radius: 12px;
-  font-size: 1.1rem;
+  border-radius: 8px;
+  font-size: .9rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -127,11 +124,10 @@ body {
   transform: scale(0.98);
 }
 
-/* Responsive Design */
 @media (max-width: 480px) {
   .form-container {
     padding: 1.5rem;
-    margin: 1rem;
+    margin: auto;
   }
 
   .form-title {

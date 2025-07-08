@@ -65,6 +65,7 @@
 
 .day-number {
   font-size: 0.9rem;
+  margin: auto;
 }
 
 
@@ -78,12 +79,12 @@
   }
 
   .calendar-day {
-    font-size: 0.75rem;
+    font-size: 0.65rem;
     padding: 0.35rem;
   }
 
   .calendar-weekday {
-    font-size: 0.75rem;
+    font-size: 0.6rem;
   }
 }
 
@@ -107,5 +108,9 @@
 
   .calendar-header {
     font-size: 0.9rem;
+  }
+
+  .day-number{
+    font-size: .7rem;
   }
 }
