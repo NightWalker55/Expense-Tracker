@@ -1,0 +1,37 @@
+.app-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.sidebar, .main-content, .expenses {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .app-container {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .sidebar {
+    position: static;
+    height: auto;
+  }
+}
+
+@media (max-width: 400px) {
+  .app-container {
+    padding: 0.5rem;
+    gap: 0.5rem;
+  }
+
+  .sidebar, .main-content {
+    padding: 0.5rem;
+  }
+}
