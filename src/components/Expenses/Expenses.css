@@ -1,86 +1,159 @@
 .expenses-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 1.5rem;
-    padding: 1.5rem;
-  }
-  
-  .expense-card {
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    padding: 1.2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: transform 0.2s ease;
-  }
-  
-  .expense-card:hover {
-    transform: translateY(-4px);
-  }
-  
-  .expense-info h3 {
-    margin: 0;
-    font-size: 1.1rem;
-    color: #333;
-  }
-  
-  .expense-info p {
-    margin: 4px 0 0;
-    color: #777;
-  }
-  
-  .delete-button {
-    background-color: #ff4d4f;
-    color: white;
-    border: none;
-    padding: 0.4rem 0.8rem;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-  }
-  
-  .delete-button:hover {
-    background-color: #d9363e;
-  }
-  
-  .loading,
-  .empty {
-    text-align: center;
-    margin-top: 2rem;
-    color: #555;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.expense-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+}
+
+.expense-card:hover {
+  transform: translateY(-6px);
+}
+
+.expense-category-icon {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.expense-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.expense-info h3 {
+  font-size: 1.2rem;
+  margin: 0;
+  color: #1e293b;
+}
+
+.expense-info p {
+  margin: 6px 0 0;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.expense-actions {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
+}
+
+.delete-button,
+.update-button {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: background-color 0.2s ease;
+}
+
+.delete-button {
+  background-color: #ef4444;
+  color: white;
+}
+
+.delete-button:hover {
+  background-color: #dc2626;
+}
+
+.update-button {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.update-button:hover {
+  background-color: #2563eb;
+}
+
+/* Expense type coloring */
+.high-expense {
+  border-left: 5px solid #ef4444;
+}
+
+.low-expense {
+  border-left: 5px solid #10b981;
+}
+
+.total-amount {
+  margin-top: 1rem;
+  padding: 1.2rem 2rem;
+  background: linear-gradient(135deg, #fdfbfb, #ebedee);
+  color: #1e293b;
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 16px;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.total-amount:hover {
+  transform: scale(1.04);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+.loading,
+.no-expenses {
+  text-align: center;
+  margin-top: 2rem;
+  color: #555;
+}
+
+.no-expenses {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+}
+
+.no-expenses-card {
+  background-color: #f9fafb;
+  padding: 2rem 3rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  color: #334155;
+  max-width: 400px;
+}
+
+.no-expenses-card h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.no-expenses-card p {
+  margin: 0.4rem 0;
+  font-size: 1rem;
+  color: #475569;
+}
+
+@media (max-width: 600px) {
+  .expenses-container {
+    grid-template-columns: 1fr;
+    padding: 1rem;
   }
 
-  .no-expenses {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 60vh;
+  .expense-card {
+    padding: 1rem;
   }
-  
-  .no-expenses-card {
-    background-color: #fdfdfd;
-    padding: 2rem 3rem;
-    border-radius: 16px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    color: #444;
-    max-width: 400px;
-  }
-  
-  .no-expenses-card h2 {
-    font-size: 1.8rem;
-    margin-bottom: 0.5rem;
-    color: #333;
-  }
-  
-  .no-expenses-card p {
-    margin: 0.4rem 0;
-    font-size: 1rem;
-    color: #666;
-  }
-  
-  .total-amount{
-    text-align: center;
-  }
+}

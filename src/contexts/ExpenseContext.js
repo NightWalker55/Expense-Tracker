@@ -37,7 +37,8 @@ export const ExpenseProvider = ({ children }) => {
         ...expense,
         date: formatDate(selectedDate),
       });
-      setExpenses((prev) => [...prev, newExpense.data || newExpense]);
+      await fetchExpenses(selectedDate);
+
     } catch (err) {
       setError(err.message || 'Failed to add expense');
     }
