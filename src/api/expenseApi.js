@@ -15,6 +15,16 @@ export const getExpensesByDate = async (date) => {
   }
 };
 
+export const getAllExpenses = async () =>{
+    try {
+        const response = axios.get(`${API_BASE_URL}/daily_expense`);
+        return (await response).data;
+    } catch (error) {
+        console.error('Error fetching expenses:', error);
+        throw error;
+      }
+}
+
 export const addExpense = async (expenseData) => {
   try {
     const response = await axios.post(`${API_BASE_URL}/create_expense`, expenseData);

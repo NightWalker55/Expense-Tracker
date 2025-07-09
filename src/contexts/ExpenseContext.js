@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react';
-import { getExpensesByDate, addExpense, updateExpense, deleteExpense } from '../api/expenseApi';
+import { getExpensesByDate, addExpense, updateExpense, deleteExpense, getAllExpenses } from '../api/expenseApi';
 
 const ExpenseContext = createContext();
 
@@ -8,6 +8,7 @@ export const ExpenseProvider = ({ children }) => {
   const [expenses, setExpenses] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [allExpense,setAllExpense] = useState([])
 
   const formatDate = (date) => {
   const year = date.getFullYear();
@@ -30,6 +31,20 @@ export const ExpenseProvider = ({ children }) => {
       setIsLoading(false);
     }
   };
+
+  const fetchAllExpense = async () =>{
+    setIsLoading(true);
+    try {
+      const res = await getAllExpenses();
+      setAllExpense(res.data || []);
+      setError(null)
+    } catch (err) {
+      setError(err.message || 'Failed to fetch expenses');
+      setExpenses([]);
+    } finally {
+      setIsLoading(false);
+    }
+  }
 
   const handleAddExpense = async (expense) => {
     try {
@@ -69,12 +84,17 @@ export const ExpenseProvider = ({ children }) => {
     fetchExpenses(selectedDate);
   }, [selectedDate]);
 
+  useEffect(() => {
+    fetchAllExpense();
+  }, []); 
+
   return (
     <ExpenseContext.Provider
       value={{
         selectedDate,
         setSelectedDate,
         expenses,
+        allExpense,
         isLoading,
         error,
         addExpense: handleAddExpense,
