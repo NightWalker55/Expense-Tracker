@@ -44,12 +44,9 @@ export const ExpenseProvider = ({ children }) => {
     }
   };
 
-  const handleUpdateExpense = async (id, updatedExpense) => {
+  const handleUpdateExpense = async (id, updatedFields) => {
     try {
-      const res = await updateExpense(id, {
-        ...updatedExpense,
-        date: formatDate(selectedDate), 
-      });
+      const res = await updateExpense(id, updatedFields); 
       setExpenses((prev) =>
         prev.map((exp) => (exp.id === id ? res.data || res : exp))
       );
@@ -57,6 +54,7 @@ export const ExpenseProvider = ({ children }) => {
       setError(err.message || 'Failed to update expense');
     }
   };
+  
 
   const handleDeleteExpense = async (id) => {
     try {

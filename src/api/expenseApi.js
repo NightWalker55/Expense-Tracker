@@ -26,14 +26,14 @@ export const addExpense = async (expenseData) => {
 };
 
 export const updateExpense = async (id, expenseData) => {
-  try {
-    const response = await axios.put(`${API_BASE_URL}/expenses/${id}`, expenseData);
-    return response.data;
-  } catch (error) {
-    console.error('Error updating expense:', error);
-    throw error;
-  }
-};
+    try {
+      const response = await axios.patch(`${API_BASE_URL}/update_expense/${id}`, expenseData);
+      return response.data;
+    } catch (error) {
+      console.error('Error updating expense:', error);
+      throw new Error(error.response?.data?.message || 'Failed to update expense');
+    }
+  };
 
 export const deleteExpense = async (id) => {
     try {
