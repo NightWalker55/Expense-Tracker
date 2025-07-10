@@ -54,6 +54,7 @@ export const ExpenseProvider = ({ children }) => {
         date: formatDate(selectedDate),
       });
       await fetchExpenses(selectedDate);
+      await fetchAllExpense();
 
     } catch (err) {
       setError(err.message || 'Failed to add expense');
@@ -66,6 +67,7 @@ export const ExpenseProvider = ({ children }) => {
       setExpenses((prev) =>
         prev.map((exp) => (exp.id === id ? res.data || res : exp))
       );
+      await fetchAllExpense();
     } catch (err) {
       setError(err.message || 'Failed to update expense');
     }
@@ -76,6 +78,7 @@ export const ExpenseProvider = ({ children }) => {
     try {
       await deleteExpense(id);
       setExpenses((prev) => prev.filter((exp) => exp.id !== id));
+      await fetchAllExpense();
     } catch (err) {
       setError(err.message || 'Failed to delete expense');
     }
