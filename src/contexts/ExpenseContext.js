@@ -36,7 +36,8 @@ export const ExpenseProvider = ({ children }) => {
     setIsLoading(true);
     try {
       const res = await getAllExpenses();
-      setAllExpense(res.data || []);
+      console.log(res)
+      setAllExpense(res || []);
       setError(null)
     } catch (err) {
       setError(err.message || 'Failed to fetch expenses');

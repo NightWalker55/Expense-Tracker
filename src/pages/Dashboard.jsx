@@ -4,6 +4,7 @@ import ExpenseForm from '../components/ExpenseForm/ExpenseForm';
 import MainLayout from '../components/Layout/MainLayout';
 import Calendar from '../components/Calendar/Calendar';
 import Expenses from '../components/Expenses/Expenses';
+import Total from '../components/Total/Total';
 
 const Dashboard = () => {
   const { selectedDate, setSelectedDate, expenses, isLoading, error } = useExpenses();
@@ -13,11 +14,14 @@ const Dashboard = () => {
   };
 
   return (
+    <>
     <MainLayout
       calendar={<Calendar selectedDate={selectedDate} onDateSelect={handleDateSelect} />}
       form={<ExpenseForm />}
     expenses={<Expenses/>}
     />
+    <Total/>
+    </>
   );
 };
 

@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import './Expenses.css';
 
 export default function Expenses() {
-  const { expenses, isLoading, deleteExpense, updateExpense,allExpense } = useExpenses();
+  const { expenses, isLoading, deleteExpense, updateExpense } = useExpenses();
   const [editingId, setEditingId] = useState(null);
   const [formData, setFormData] = useState({ expense_name: '', amount: 0 });
 
@@ -118,7 +118,6 @@ export default function Expenses() {
         ))}
       </div>
       <h2 className="total-amount">Total: ৳ {total}</h2>
-      <h3>{allExpense[0].amount}</h3>
     </div>
   );
 }

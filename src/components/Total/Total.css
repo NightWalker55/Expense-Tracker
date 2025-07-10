@@ -1,0 +1,40 @@
+.total-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+  }
+  
+  .total-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: linear-gradient(135deg, #f9f9f9, #e8f0ff);
+    padding: 1.5rem 2rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+  }
+  
+  .total-card:hover {
+    transform: translateY(-4px);
+  }
+  
+  .wallet-icon {
+    font-size: 2.5rem;
+    color: #4f46e5;
+  }
+  
+  .total-text .label {
+    font-size: 1rem;
+    color: #555;
+    margin: 0;
+  }
+  
+  .total-text .amount {
+    font-size: 2rem;
+    color: #111;
+    font-weight: bold;
+    margin: 0;
+  }
+  

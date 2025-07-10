@@ -17,8 +17,8 @@ export const getExpensesByDate = async (date) => {
 
 export const getAllExpenses = async () =>{
     try {
-        const response = axios.get(`${API_BASE_URL}/daily_expense`);
-        return (await response).data;
+        const response =await axios.get(`${API_BASE_URL}/all_daily_expense`);
+        return response.data;
     } catch (error) {
         console.error('Error fetching expenses:', error);
         throw error;
